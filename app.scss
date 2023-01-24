@@ -1,0 +1,94 @@
+*:where(::before, ::after) {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: sans-serif;
+}
+
+.main-section {
+    margin: 30px 40px;
+
+    h1 {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 0.75em;
+    }
+
+    .custom-select-dropdown {
+        width: 260px;
+        position: relative;
+        left: 50%;
+        translate: -50%;
+
+        &__button {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 1rem;
+            padding: 0.75em 1.25em;
+            border-radius: 4px;
+            white-space: nowrap;
+            border: 1px solid #dbdbdb;
+            background-color: transparent;
+
+            &:focus {
+                border: 1px solid #666;
+            }
+
+            span {
+                width: fit-content;
+            }
+
+            .bi-chevron-down {
+                width: 16px;
+            }
+        }
+
+        &__list {
+            height: 0;
+            opacity: 0;
+            width: 260px;
+            overflow: hidden;
+            border-radius: 4px;
+            background-color: #fff;
+            border: 1px solid #dbdbdb;
+            transition: all 0.5s ease;
+            position: absolute;
+            top: 100%;
+
+            &.show {
+                opacity: 1;
+                height: fit-content;
+            }
+
+            ul {
+                padding-left: 0;
+                list-style: none;
+                margin-bottom: 0;
+
+                li {
+                    font-size: 1rem;
+                    cursor: pointer;
+                    padding: 0.75em 1.25em;
+                    transition: all 0.5s ease;
+
+                    &:where(:hover, :active) {
+                        color: #fff;
+                        background-color: #0397d3;
+                    }
+
+                    &.selected {
+                        color: #fff;
+                        background-color: #0397d3;
+                    }
+                }
+            }
+        }
+    }
+}
